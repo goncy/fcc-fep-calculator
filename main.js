@@ -42,6 +42,9 @@ window.app = new Vue({
     },
     previousBuffer() {
       return this.buffer.substring(0, this.buffer.length - 1)
+    },
+    formatedResult() {
+      return Math.round(this.result * 100) / 100
     }
   }
 })
