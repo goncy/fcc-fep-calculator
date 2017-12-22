@@ -11,27 +11,31 @@
   <div id="app">
     <div class="calculator">
       <div class="display">
-        <div>0</div>
+        <div class="error" v-if="error">{{error}}</div>
+        <div class="input" v-else>
+            <div v-if="buffer" class="small">{{buffer}}</div>
+            <div>{{result}}</div>
+        </div>
       </div>
       <div class="buttons">
-        <div class="button small">AC</div>
-        <div class="button small">CE</div>
-        <div class="button small">/</div>
-        <div class="button small">X</div>
-        <div class="button small">7</div>
-        <div class="button small">8</div>
-        <div class="button small">9</div>
-        <div class="button small">-</div>
-        <div class="button small">4</div>
-        <div class="button small">5</div>
-        <div class="button small">6</div>
-        <div class="button small">+</div>
-        <div class="button small">1</div>
-        <div class="button small">2</div>
-        <div class="button small">3</div>
-        <div class="button vertical-large"> = </div>
-        <div class="button horizontal-large">0</div>
-        <div class="button small">.</div>
+        <div @click="clearBuffer()" class="button small">AC</div>
+        <div @click="clearBuffer()" class="button small">CE</div>
+        <div @click="addToBuffer('/')" class="button small">/</div>
+        <div @click="addToBuffer('*')" class="button small">X</div>
+        <div @click="addToBuffer('7')" class="button small">7</div>
+        <div @click="addToBuffer('8')" class="button small">8</div>
+        <div @click="addToBuffer('9')" class="button small">9</div>
+        <div @click="addToBuffer('-')" class="button small">-</div>
+        <div @click="addToBuffer('4')" class="button small">4</div>
+        <div @click="addToBuffer('5')" class="button small">5</div>
+        <div @click="addToBuffer('6')" class="button small">6</div>
+        <div @click="addToBuffer('+')" class="button small">+</div>
+        <div @click="addToBuffer('1')" class="button small">1</div>
+        <div @click="addToBuffer('2')" class="button small">2</div>
+        <div @click="addToBuffer('3')" class="button small">3</div>
+        <div @click="processBuffer()" class="button vertical-large"> = </div>
+        <div @click="addToBuffer('0')" class="button horizontal-large">0</div>
+        <div @click="addToBuffer('.')" class="button small">.</div>
       </div>
     </div>
   </div>

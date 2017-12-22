@@ -25,15 +25,32 @@ html, body, #app {
 
 .calculator .display {
   font-size: 2rem;
-  justify-content: flex-end;
+  justify-content: center;
   background-color: white;
   align-items: center;
   color: dodgerblue;
   display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   height: 80px;
   padding: 0 10px;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.calculator .display .error {
+  text-align: center;
+  font-size: 1rem;
+  color: red;
+  width: 100%;
+}
+
+.calculator .display .input {
+  text-align: right;
+}
+
+.calculator .display .input .small {
+  font-size: 1rem;
 }
 
 .calculator .buttons {
